@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:15
+    container_name: cse_warehouse
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: Kavindu2002
+      POSTGRES_DB: cse_dwh
+    ports:
+      - "5433:5432"
+    volumes:
+      # Maps your local SQL folder to the container so we can run scripts easily
+      - ./sql:/docker-entrypoint-initdb.d
